@@ -1,13 +1,15 @@
 from locale import locale_encoding_alias
+import re
 from loguru import logger
 from starlette.applications import Starlette
 from starlette.responses import PlainTextResponse
 from starlette.routing import Route, Mount, WebSocketRoute
 from starlette.staticfiles import StaticFiles
 
-def homepage(request):
-    logger.info(request.app.state.HELLO)
-    logger.info(request.app)
+async def homepage(request):
+    # logger.info(request.app.state.HELLO)
+    # logger.info(request.app)
+    logger.info(request.headers)
     return PlainTextResponse('Hello, world!')
 
 def user_me(request):
